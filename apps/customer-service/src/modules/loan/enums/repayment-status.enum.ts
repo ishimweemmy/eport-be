@@ -1,0 +1,6 @@
+export enum ERepaymentStatus {
+  SCHEDULED = 'SCHEDULED',
+  PAID = 'PAID',
+  OVERDUE = 'OVERDUE',
+  PARTIALLY_PAID = 'PARTIALLY_PAID',
+}
