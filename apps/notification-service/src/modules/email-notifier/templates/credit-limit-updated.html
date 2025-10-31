@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Limit Updated</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .status-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 0 20px 20px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .update-box {
+            background: linear-gradient(135deg, #e0f7fa 0%, #e1f5fe 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .comparison {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            text-align: center;
+        }
+        .old-value {
+            font-size: 24px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .new-value {
+            font-size: 32px;
+            color: #4facfe;
+            font-weight: bold;
+        }
+        .label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 0 0 10px 10px;
+            margin: 30px -20px -20px -20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="status-icon">💳</div>
+            <h1>Credit Limit Updated</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{customerName}},</p>
+            
+            <p>We're pleased to inform you that your credit limit has been updated!</p>
+            
+            <div class="update-box">
+                <div class="comparison">
+                    <div class="comparison-item">
+                        <div class="old-value">{{oldLimit}} RWF</div>
+                        <div class="label">Previous Limit</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div style="font-size: 32px;">→</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="new-value">{{newLimit}} RWF</div>
+                        <div class="label">New Limit</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>This change is effective immediately. You can now access your updated credit limit for your financial needs.</p>
+            
+            <p><strong>What this means for you:</strong></p>
+            <ul>
+                <li>More borrowing capacity for your needs</li>
+                <li>Greater financial flexibility</li>
+                <li>Updated credit terms in your account</li>
+            </ul>
+            
+            <center>
+                <a href="#" class="button">View My Account</a>
+            </center>
+            
+            <p>If you have any questions about this change, please contact our support team.</p>
+            
+            <p>Best regards,<br/><strong>Credit Jambo Team</strong></p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 Credit Jambo. All rights reserved.</p>
+            <p>This is an automated message, please do not reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Tier Upgrade</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+        .header.silver {
+            background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+        }
+        .header.gold {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+        }
+        .header.platinum {
+            background: linear-gradient(135deg, #434343 0%, #000000 100%);
+        }
+        .header.basic {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .status-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 0 20px 20px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .upgrade-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid #f5576c;
+        }
+        .upgrade-box.silver {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            border-color: #95a5a6;
+        }
+        .upgrade-box.gold {
+            background: linear-gradient(135deg, #fff9c4 0%, #ffe082 100%);
+            border-color: #f7971e;
+        }
+        .upgrade-box.platinum {
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+            border-color: #434343;
+        }
+        .upgrade-box.basic {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            border-color: #636e72;
+        }
+        .tier-badge {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f5576c;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+        .tier-badge.silver {
+            color: #7f8c8d;
+        }
+        .tier-badge.gold {
+            color: #f7971e;
+        }
+        .tier-badge.platinum {
+            color: #434343;
+        }
+        .tier-badge.basic {
+            color: #0984e3;
+        }
+        .details {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .details .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .details .row:last-child {
+            border-bottom: none;
+        }
+        .details .label {
+            font-weight: bold;
+            color: #666;
+        }
+        .details .value {
+            color: #333;
+        }
+        .benefits {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .benefits ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header {{tierClass}}">
+            <div class="status-icon">🎉</div>
+            <h1>Congratulations!</h1>
+            <p style="margin: 10px 0 0 0; font-size: 16px;">Account Tier Upgraded</p>
+        </div>
+        <div class="content">
+            <p>Dear <strong>{{customerName}}</strong>,</p>
+
+            <div class="upgrade-box {{tierClass}}">
+                <p style="margin-top: 0; font-size: 18px;"><strong>You've Been Upgraded!</strong></p>
+                <p>Your savings account has been upgraded to</p>
+                <div class="tier-badge {{tierClass}}">{{newTier}} Tier</div>
+                <p style="margin: 10px 0; font-size: 14px;">Upgraded from <strong>{{previousTier}}</strong></p>
+            </div>
+
+            <h3>Account Details</h3>
+            <div class="details">
+                <div class="row">
+                    <span class="label">Account Number:</span>
+                    <span class="value">{{accountNumber}}</span>
+                </div>
+                <div class="row">
+                    <span class="label">Previous Tier:</span>
+                    <span class="value">{{previousTier}}</span>
+                </div>
+                <div class="row">
+                    <span class="label">New Tier:</span>
+                    <span class="value"><strong>{{newTier}}</strong></span>
+                </div>
+                <div class="row">
+                    <span class="label">Upgrade Date:</span>
+                    <span class="value">{{upgradeDate}}</span>
+                </div>
+                <div class="row">
+                    <span class="label">Current Balance:</span>
+                    <span class="value"><strong>{{currentBalance}} RWF</strong></span>
+                </div>
+            </div>
+
+            <div class="benefits">
+                <p style="margin-top: 0;"><strong>✨ Your New Benefits:</strong></p>
+                <ul>
+                    <li><strong>Daily Withdrawal Limit:</strong> {{dailyWithdrawalLimit}} RWF (previously {{previousDailyWithdrawal}} RWF)</li>
+                    <li><strong>Monthly Withdrawal Limit:</strong> {{monthlyWithdrawalLimit}} RWF (previously {{previousMonthlyWithdrawal}} RWF)</li>
+                    <li><strong>Daily Deposit Limit:</strong> {{dailyDepositLimit}} RWF (previously {{previousDailyDeposit}} RWF)</li>
+                    <li><strong>Interest Rate:</strong> {{interestRate}}% p.a. (previously {{previousInterestRate}}%)</li>
+                </ul>
+            </div>
+
+            <p style="background: #e3f2fd; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <strong>🎯 How You Qualified:</strong><br>
+                Your consistent savings habits and responsible financial management have earned you this upgrade. Keep up the excellent work!
+            </p>
+
+            <p style="background: #fff3e0; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <strong>💡 What's Next?</strong><br>
+                {{#if nextTier}}
+                Continue building your savings to reach <strong>{{nextTier}}</strong> tier and unlock even more benefits!
+                {{else}}
+                You've reached our highest tier! Enjoy all the premium benefits of {{newTier}} membership.
+                {{/if}}
+            </p>
+
+            <p style="background: #fce4ec; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <strong>🌟 Exclusive Perks:</strong><br>
+                • Higher transaction limits for your convenience<br>
+                • Better interest rates on your savings<br>
+                • Priority customer support<br>
+                • Enhanced credit limit eligibility<br>
+                • Special promotional offers
+            </p>
+
+            <p>Thank you for being a valued member of Credit Jambo. We look forward to continuing to serve your financial needs.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Credit Jambo Ltd</strong></p>
+            <p>Growing together towards financial success</p>
+            <p>This is an automated notification. Please do not reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>

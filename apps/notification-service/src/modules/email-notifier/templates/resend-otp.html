@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email - Credit Jambo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 0 20px 20px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .otp-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .otp-code {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 10px;
+            margin: 10px 0;
+        }
+        .otp-label {
+            color: white;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Verify Your Email</h1>
+            <p>Credit Jambo</p>
+        </div>
+        <div class="content">
+            <p>Dear <strong>{{firstName}}</strong>,</p>
+
+            <p>You requested a verification code to activate your Credit Jambo account. Please use the code below:</p>
+
+            <div class="otp-box">
+                <div class="otp-label">YOUR VERIFICATION CODE</div>
+                <div class="otp-code">{{otp}}</div>
+                <div class="otp-label">Valid for 10 minutes</div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Security Notice:</strong> Never share this code with anyone. Credit Jambo staff will never ask for your verification code.
+            </div>
+
+            <p>If you didn't request this code, please ignore this email or contact our support team if you have concerns.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Credit Jambo Ltd</strong></p>
+            <p>Digital Credit & Savings Platform</p>
+            <p>This is an automated message. Please do not reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>

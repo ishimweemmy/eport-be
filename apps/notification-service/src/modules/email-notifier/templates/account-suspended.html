@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Suspended</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .status-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 0 20px 20px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .warning-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        .info-item {
+            margin: 10px 0;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 0 0 10px 10px;
+            margin: 30px -20px -20px -20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="status-icon">⛔</div>
+            <h1>Account Suspended</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{customerName}},</p>
+            
+            <p>We regret to inform you that your account has been temporarily suspended.</p>
+            
+            <div class="warning-box">
+                <div class="info-item">
+                    <span class="info-label">Reason:</span> {{reason}}
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status:</span> Suspended
+                </div>
+            </div>
+            
+            <p><strong>What this means:</strong></p>
+            <ul>
+                <li>You cannot access your account temporarily</li>
+                <li>All transactions are currently on hold</li>
+                <li>Your existing loans remain active</li>
+            </ul>
+            
+            <p><strong>Next steps:</strong></p>
+            <ul>
+                <li>Contact our support team for clarification</li>
+                <li>Provide any requested information or documentation</li>
+                <li>Follow the resolution process</li>
+            </ul>
+            
+            <center>
+                <a href="#" class="button">Contact Support</a>
+            </center>
+            
+            <p>We're here to help resolve this matter as quickly as possible. Please reach out to our support team for assistance.</p>
+            
+            <p>Best regards,<br/><strong>Credit Jambo Team</strong></p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 Credit Jambo. All rights reserved.</p>
+            <p>This is an automated message, please do not reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>
+
