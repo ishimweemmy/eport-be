@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package customer;
+
+service CollegeService {
+  rpc RefreshCollegeModules (Empty) returns (Empty) {}
+}
+
+service StudentService {
+  rpc RefreshStudentMarks (Empty) returns (Empty) {}
+}
+
+message Empty {} 
+
+
+service HocusPocusService {
+  rpc LoadDocument (LoadDocumentRequest) returns (LoadDocumentResponse);
+  rpc StoreDocument (StoreDocumentRequest) returns (StoreDocumentResponse);
+}
+
+message LoadDocumentRequest {
+  string documentName = 1;
+}
+
+message LoadDocumentResponse {
+  bytes documentContentBuffer = 1; // Serialized Y.Doc state
+}
+
+message StoreDocumentRequest {
+  string documentName = 1;
+  bytes stateBuffer = 2; // Serialized Y.Doc state
+}
+
+message StoreDocumentResponse {
+  string message = 1; // Success message
+}
