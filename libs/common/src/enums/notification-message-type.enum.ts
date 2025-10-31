@@ -1,0 +1,4 @@
+export enum ENotificationMessageType {
+  TRANSACTIONAL = 'TRANSACTIONAL',
+  ADMINISTRATIVE = 'ADMINISTRATIVE',
+}
