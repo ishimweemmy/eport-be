@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Notice</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .status-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 0 20px 20px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .default-box {
+            background: linear-gradient(135deg, #ffcdd2 0%, #ffebee 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border: 3px solid #c62828;
+        }
+        .amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: #b71c1c;
+            margin: 10px 0;
+        }
+        .default-status {
+            font-size: 20px;
+            font-weight: bold;
+            color: #b71c1c;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+        .details {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .details .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .details .row:last-child {
+            border-bottom: none;
+        }
+        .details .label {
+            font-weight: bold;
+            color: #666;
+        }
+        .details .value {
+            color: #333;
+        }
+        .contact-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .consequences {
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f57c00;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="status-icon">🚨</div>
+            <h1>Loan Default Notice</h1>
+        </div>
+        <div class="content">
+            <p>Dear <strong>{{customerName}}</strong>,</p>
+
+            <div class="default-box">
+                <div class="default-status">Account in Default</div>
+                <p style="margin: 10px 0;">Your loan has been marked as defaulted due to non-payment</p>
+                <div class="amount">{{totalDefaultAmount}} RWF</div>
+                <p style="margin: 10px 0; font-size: 14px;"><strong>{{daysInDefault}} days past due</strong></p>
+            </div>
+
+            <h3>Default Account Details</h3>
+            <div class="details">
+                <div class="row">
+                    <span class="label">Loan Number:</span>
+                    <span class="value">{{loanNumber}}</span>
+                </div>
+                <div class="row">
+                    <span class="label">Default Date:</span>
+                    <span class="value"><strong>{{defaultDate}}</strong></span>
+                </div>
+                <div class="row">
+                    <span class="label">Days in Default:</span>
+                    <span class="value"><strong style="color: #b71c1c;">{{daysInDefault}} days</strong></span>
+                </div>
+                <div class="row">
+                    <span class="label">Total Amount Due:</span>
+                    <span class="value"><strong>{{totalDefaultAmount}} RWF</strong></span>
+                </div>
+                <div class="row">
+                    <span class="label">Principal Outstanding:</span>
+                    <span class="value">{{principalOutstanding}} RWF</span>
+                </div>
+                <div class="row">
+                    <span class="label">Interest & Penalties:</span>
+                    <span class="value">{{interestAndPenalties}} RWF</span>
+                </div>
+                <div class="row">
+                    <span class="label">Original Due Date:</span>
+                    <span class="value">{{originalDueDate}}</span>
+                </div>
+            </div>
+
+            <div style="background: #ffcdd2; padding: 15px; border-radius: 5px; margin: 20px 0; border: 2px solid #c62828;">
+                <p style="margin-top: 0;"><strong>🚨 Critical Account Status</strong></p>
+                <p>This is a formal notice that your loan account has entered default status due to payment being overdue for more than 30 days. Immediate action is required.</p>
+            </div>
+
+            <div class="consequences">
+                <p style="margin-top: 0;"><strong>⚠️ Consequences of Default:</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>Credit Score:</strong> Severely impacted, making future borrowing difficult</li>
+                    <li><strong>Credit Limit:</strong> Suspended until full repayment</li>
+                    <li><strong>Late Fees:</strong> Additional penalties continue to accrue</li>
+                    <li><strong>Collections:</strong> Your account has been referred to our collections department</li>
+                    <li><strong>Legal Action:</strong> May be pursued to recover outstanding amounts</li>
+                    <li><strong>Credit Bureau Reporting:</strong> Default status reported to credit bureaus</li>
+                </ul>
+            </div>
+
+            <a href="{{contactUrl}}" class="contact-button">Contact Us Immediately</a>
+
+            <p style="background: #e3f2fd; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <strong>💡 Resolution Options:</strong><br>
+                We understand that financial difficulties can arise. Please contact our collections team immediately to:<br>
+                • Discuss payment arrangements<br>
+                • Explore restructuring options<br>
+                • Set up a repayment plan<br>
+                • Avoid further legal action
+            </p>
+
+            <p style="background: #fff3e0; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <strong>📞 Urgent Contact Required:</strong><br>
+                Collections Department: {{collectionsPhone}}<br>
+                Email: {{collectionsEmail}}<br>
+                Office Hours: Monday - Friday, 8:00 AM - 6:00 PM
+            </p>
+
+            <p><strong>Important:</strong> This is a formal legal notice. Failure to respond or make payment arrangements may result in escalated collection activities and legal proceedings.</p>
+
+            <p>We encourage you to contact us immediately to resolve this matter and minimize further consequences to your credit profile.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Credit Jambo Ltd - Collections Department</strong></p>
+            <p>This is a formal legal notice regarding your defaulted loan account.</p>
+            <p>Reference Number: {{loanNumber}} | Default Date: {{defaultDate}}</p>
+        </div>
+    </div>
+</body>
+</html>

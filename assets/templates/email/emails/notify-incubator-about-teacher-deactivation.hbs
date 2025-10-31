@@ -1,0 +1,49 @@
+{{> heading title="RP E-Portfolio - Project Supervisor Update: Supervisor Deactivation"}}
+
+        <main style="font-size: 16px; line-height: 1.7;">
+            <p style="margin-bottom: 24px; font-weight: 500;">Dear {{hodName}},</p>
+
+            <p style="margin-bottom: 32px; color: #374151;">
+This is to inform you that {{teacherName}} from your department has had their MIS account deactivated effective {{deactivationDate}}.
+            </p>
+
+            <div style="margin-bottom: 32px;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #1f2937; margin-top: 0;">Required Actions:</h3>
+                <ul style="list-style: none; padding-left: 0; margin: 0;">
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 8px; color: #374151;">
+                        <span style="position: absolute; left: 0; color: #6b7280; font-weight: bold;">•</span>
+                        Review the list of {{numberOfProjectsSupervisedByTeacher}} student projects that need reassignment
+                    </li>
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 8px; color: #374151;">
+                        <span style="position: absolute; left: 0; color: #6b7280; font-weight: bold;">•</span>
+                        Assign new supervisors to these projects using the link below
+                    </li>
+                    <li style="position: relative; padding-left: 20px; margin-bottom: 8px; color: #374151;">
+                        <span style="position: absolute; left: 0; color: #6b7280; font-weight: bold;">•</span>
+                        Complete reassignments within 5 business days
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-bottom: 32px;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #1f2937; margin-top: 0;">List of affected students projects:</h3>
+                     <ul style="list-style: none; padding-left: 0; margin: 0;">
+                    {{#each projectTitles}}
+                        <li style="position: relative; padding-left: 20px; margin-bottom: 8px; color: #374151;">
+                        <span style="position: absolute; left: 0; color: #6b7280; font-weight: bold;">•</span>
+                        {{this}}
+                        </li>
+                    {{/each}}
+                    </ul>
+                    <p style="margin-bottom: 32px; color: #374151;"> To reassign new supervisors, please click the link below:</p>
+                    <a href="{{reassignLink}}" style="color: #007bff; text-decoration: none;">{{reassignLink}}</a>
+            </div>
+            <p style="margin-bottom: 32px; color: #374151;">
+                Please contact the MIS Support Team at {{collegeAdminContact}} if you need assistance with this process.
+            </p>
+
+        {{> footer2 college=college}}
+
+        </main>
+    </div>
+</body>
+</html>

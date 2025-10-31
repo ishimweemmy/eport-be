@@ -1,0 +1,10 @@
+{{> header}}
+    <h1>Welcome to RP E-Portfolio {{userName}}!</h1>
+    <p>{{emailContent}}</p>
+    <p>Your default Password is {{defaultPassword}}. Please go and login</p>
+
+
+    {{#if isNewUser}}
+        {{> button url=dashboardUrl text="Log in"}}
+    {{/if}}
+{{> footer}}
