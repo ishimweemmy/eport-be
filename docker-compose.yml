@@ -1,0 +1,59 @@
+services:
+  customer-service:
+    build:
+      context: .
+      dockerfile: ./apps/customer-service/Dockerfile
+    command: yarn start:dev customer-service
+    env_file:
+      - ./apps/customer-service/.env
+    environment:
+      - DB_HOST=postgres #  this is useful since localhost is not accessible from the container
+      - DB_PORT=5432 # Use PostgreSQL's default internal port
+      - REDIS_URL=redis://:dXf9TMBjMLxUCfz6HG57@redis:6379/1
+      - RABBITMQ_URI=amqp://rabbitmq:5672
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - '4010:4010'
+      - '50055:50055'
+
+  notification-service:
+    build:
+      context: .
+      dockerfile: ./apps/notification-service/Dockerfile
+    command: yarn start:dev notification-service
+    env_file:
+      - ./apps/notification-service/.env
+    environment:
+      - DB_HOST=notification-db #  this is useful since localhost is not accessible from the container
+      - DB_PORT=5432 # Use PostgreSQL's default internal port
+      - RABBITMQ_URI=amqp://rabbitmq:5672
+
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - '4020:4020'
+      - '50052:50052'
+      
+  admin-service:
+    build:
+      context: .
+      dockerfile: ./apps/admin-service/Dockerfile
+    command: yarn start:dev admin-service
+    env_file:
+      - ./apps/admin-service/.env
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - NOTIFICATION_GRPC_URL=notification-service:50052
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - '4060:4060'
+
+volumes:
+  caddy_data:
+  caddy_config:
